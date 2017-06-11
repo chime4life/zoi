@@ -14,10 +14,10 @@ var app = {
 			"zaatari": [[40, 32, 12, 47, 78, 46, 80], [18, 26, 28, 33, 27, 33, 27]]
 		},
 		"volunteer-stats-aspirations": {
-			"fhood": [30, 26, 12, 56, 20],
-			"hadallat": [12, 32, 44, 56, 47],
-			"rukban": [30, 16, 48, 23, 36],
-			"zaatari": [40, 32, 12, 47, 78]
+			"fhood": [30, 26, 12, 56, 40],
+			"hadallat": [12, 32, 44, 56, 12],
+			"rukban": [30, 16, 48, 23, 12],
+			"zaatari": [40, 32, 12, 47, 12]
 		}
 	},
 
@@ -29,7 +29,7 @@ var app = {
     	var _this = this;
     	$('#splash').on('click', function() { _this.hideSplash(); });
     	$('.fa-bars').on('click', function() { $('.page').fadeOut(); _this.showMenu(); });
-    	$('.fa-arrow-left').on('click', function() { _this.showSubpage(_this.previous); });
+    	$('.fa-arrow-left').on('click', function() { _this.showSubpage(_this.previous, function() { $('.nested-page').hide(); }); });
 
     	$('#micon-student').on('click', function() { $('.page').hide(); _this.showStudent(); _this.hideMenu(); });
     	$('#micon-volunteer').on('click', function() { $('.page').hide(); _this.showVolunteer(); _this.hideMenu(); });
@@ -38,6 +38,7 @@ var app = {
 
     	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.updateVolunteerStats('fhood'); _this.hideSubpage('volunteer'); });
     	$('#volunteer-stats select').on('change', function() { var loc = $('#volunteer-stats select').val(); _this.updateVolunteerStats(loc); });
+    	$('#micon-volunteer-courses').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerCourses(); _this.hideSubpage('volunteer'); });
 
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
     },
@@ -50,10 +51,14 @@ var app = {
     	this.showSubpage('menu');
     },
 
-    showSubpage: function(id) {
+    showSubpage: function(id, callback) {
     	$('#' + id).animate({
     		marginTop: '0'
-    	}, 400);
+    	}, 400, function() {
+    		if (!!callback) {
+    			callback();
+    		}
+    	});
     },
 
     hideMenu: function() {
@@ -77,6 +82,10 @@ var app = {
 
     showVolunteerStats: function() {
     	$('#volunteer-stats').show();
+    },
+
+    showVolunteerCourses: function() {
+    	$('#volunteer-courses').show();
     },
 
     updateVolunteerStats: function(loc) {
