@@ -62,6 +62,8 @@ var app = {
         $('#support-stats select').on('change', function() { var loc = $('#support-stats select').val(); _this.updateSupportStats(loc); });
     
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
+
+        $('#micon-fun').on('click', function() { $('.page').hide(); _this.showFun(); _this.hideMenu(); });
     },
 
     hideSplash: function() {
@@ -127,6 +129,24 @@ var app = {
         $('#student-video video').attr("src",url);
         $('#student-video-title').html(title);
 
+    },
+
+    showFun: function() {
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "http://www.randomfunfacts.com/",
+          "method": "GET",
+          "headers": {
+            "cache-control": "no-cache",
+           }
+        }
+
+        $.ajax(settings).done(function (response) {
+            var text = $(response).find('i').text();
+            $('#fun_content').html(text);
+        });
+        $('#fun').show();
     },
 
     updateVolunteerStats: function(loc) {
