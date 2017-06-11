@@ -10,7 +10,7 @@ body {
 	background-color: #34495e;
 	color: white;
 	font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
-	font-size: 12px;
+	font-size: 16px;
 	height: 100%;
 	margin: 0px;
 	padding: 0px;
@@ -21,11 +21,50 @@ body {
 #splash {
 	background: url(../img/zoi.jpg) no-repeat center top;
 	position: fixed;
+	top: 0;
+	left: 0;
 	width: 414px;
 	height: 746px;
 	text-align: center;
+	z-index: 999;
 }
 
 #menu {
-	font-size: 12pt;
+	background-color: #34495e;
+	font-size: 14pt;
+	padding: 20px;
+	text-alight: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 998;
+}
+
+#menu-icons {
+	margin-top: 15px;
+}
+
+#menu-icons span {
+	width: 182px;
+	height: 182px;
+	background-color: #2ecc71;
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu-icons span i {
+	font-size: 60pt;
+	text-align: center;
+	width: 182px;
+	margin: 10px 0 8px;
+}
+
+.page {
+	background-color: #34495e;
+	padding: 20px;
+}
+
+#emergency {
+	font-size: 18pt;
 }
