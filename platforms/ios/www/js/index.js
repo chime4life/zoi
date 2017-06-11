@@ -51,6 +51,8 @@ var app = {
     	$('#micon-volunteer').on('click', function() { $('.page').hide(); _this.showVolunteer(); _this.hideMenu(); });
     	$('#micon-support').on('click', function() { $('.page').hide(); _this.showSupport(); _this.hideMenu(); });
     	$('#micon-emergency').on('click', function() { $('.page').hide(); _this.showEmergency(); _this.hideMenu(); });
+        
+        $('.list-group-item').on('click', function() { _this.previous = 'student'; _this.showStudentVideo($(this).attr("data-vid"),$(this).attr("data-title")); _this.hideSubpage('student'); });
 
     	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.updateVolunteerStats('fhood'); _this.hideSubpage('volunteer'); });
     	$('#volunteer-stats select').on('change', function() { var loc = $('#volunteer-stats select').val(); _this.updateVolunteerStats(loc); });
@@ -111,6 +113,7 @@ var app = {
         $('#student').show();
     },
 
+
     showSupport: function() {
         $('#support').show();
     },
@@ -119,13 +122,20 @@ var app = {
         $('#support-stats').show();
     },
 
+    showStudentVideo: function(url,title) {
+        $('#student-video').show();
+        $('#student-video video').attr("src",url);
+        $('#student-video-title').html(title);
+
+    },
+
     updateVolunteerStats: function(loc) {
     	var d1 = this.data["volunteer-stats-age-bar"][loc];
     	var c1 = document.getElementById("volunteer-stats-age-bar");
     	new Chart(c1, {
 			type: 'bar',
 			data: {
-				labels: ["5-10", "10-15"],
+				labels: ["6-12", "12-18"],
 				datasets: [{
 					label: "Female",
 					backgroundColor: "rgb(255, 99, 132)",
@@ -145,10 +155,22 @@ var app = {
 					text: 'Age Groups'
 				},
 			    scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Ages'
+                        }
+                    }],
 			        yAxes: [{
 			            ticks: {
 			                beginAtZero: true
-			            }
+			            },
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Count'
+                        }
 			        }]
 			    }
 			}
@@ -311,7 +333,7 @@ var app = {
     	var text = $('#emergency-text').val();
     	$('#emergency-text').val('').focus();
     	var d = $('<div style="clear: both;margin-top: 10px;float: left;"></div>')[0];
-    	d.innerHTML = '<div style="float: left;margin-right: 10px;font-size: 16pt;width: 260px;background-color: #ecf0f1;color: black;border-radius: 10px;padding: 3px 10px;">' + text + '</div><div style="float: left;"><img src="img/lehman.jpg" style="border-radius: 30px; width: 60px; height: 60px;" /></div>';
+    	d.innerHTML = '<div style="float: left;margin-right: 10px;font-size: 16pt;width: 260px;background-color: #1abc9c;color: black;border-radius: 10px;padding: 3px 10px;">' + text + '</div><div style="float: left;"><img src="img/lehman.jpg" style="border-radius: 30px; width: 60px; height: 60px;" /></div>';
     	$('#emergency-messages').append(d);
     	setTimeout(function(){
     		var d = $('<div style="clear: both;margin-top: 10px;float: left;"></div>')[0];

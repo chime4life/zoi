@@ -84,7 +84,7 @@
 				</div>
 			</div>
 			<div style="margin-top: 10px;">
-				<input id="emergency-text" type="text" style="height: 40px; width: 300px; font-size: 16pt;" />
+				<input id="emergency-text" type="text" style="height: 40px; width: 312px; font-size: 16pt;" />
 				<span id="emergency-send" style="margin-left: 2px; margin-top: -10px; width:40px; display: inline-block; padding: 6px 6px 6px 2px; background-color: #2ecc71; text-align: center;">
 					<i class="fa fa-paper-plane" aria-hidden="true"></i>
 				</span>
@@ -126,20 +126,39 @@
             <i class="fa fa-bars" aria-hidden="true"></i>
             <span style="float: right;">STUDENT</span>
         </div>
-        <div id="course" style="text-transform: none">
-            <ul class="list-group">
-                <li class="list-group-item">Commonly confused words</li>
-                    <ul class="list-group">
-                        <li class="list-group-item">Affect vs Effect</li>
-                        <li class="list-group-item">Less vs Fewer</li>
-                        <li class="list-group-item">To vs Two vs Too</li>
-                    </ul>
-                <li class="list-group-item">Math</li>
-                    <ul class="list-group">
-                        <li class="list-group-item">Introduction to Adding Decimals</li>
-                        <li class="list-group-item">Adding Decimals with Ones and Tenths Parts</li>
-                    </ui>
-            </ul>
+        <div id="course" style="text-transform: none; margin-top: 15px; text-align: center;">
+        	<b style="margin-bottom: 8px;">I want to be a <i class="fa fa-user-md" aria-hidden="true" style="font-size: 20pt;"></i></b><br/>
+        	<table style="margin-top: 10px;">
+        		<tr><th style="background-color: #f1c40f; border: 1px solid #f1c40f;">Together We Grow</th></tr>
+        	</table>
+        	<div id="student-progress" style="padding-left: 30px; padding-top: 8px;">
+	       		<span><b>You</b><span style="border: 1px solid #f1c40f;width: 200px;float: right;height: 18px;margin-top: 4px;margin-left: 40px;"><span style="background-color: #f1c40f;width: 120px;height: 19px;text-align:center;font-size: 12pt;">3/5</span></span></span><br/>
+	       		<span>Nina<span style="border: 1px solid #f1c40f;width: 200px;float: right;height: 18px;margin-top: 4px;margin-left: 36px;"><span style="background-color: #f1c40f;width: 80px;height: 19px;text-align:center;font-size: 12pt;">2/5</span></span></span><br/>
+	       		<span>Zubok<span style="border: 1px solid #f1c40f;width: 200px;float: right;height: 18px;margin-top: 4px;margin-left: 17px;"><span style="background-color: #f1c40f;width: 160px;height: 19px;text-align:center;font-size: 12pt;">4/5</span></span></span><br/>
+        	</div>
+        	<br/>
+        	<table>
+				<tr><th>[VIDEOS] Commonly Confused Words</th></tr>
+				<tr><td class="list-group-item" data-vid="https://cdn.kastatic.org/KA-youtube-converted/5pfZ3dyG1cg.mp4-low/5pfZ3dyG1cg-low.mp4" data-title="Affect vs Effect">Affect vs Effect</td></tr>
+				<tr><td class="list-group-item" data-vid="https://cdn.kastatic.org/KA-youtube-converted/ZkFihBrRMCM.mp4-low/ZkFihBrRMCM-low.mp4" data-title="Less vs Fewer">Less vs Fewer</td></tr>
+				<tr><td class="list-group-item" data-vid="https://cdn.kastatic.org/KA-youtube-converted/joTuAvMQ9vE.mp4-low/joTuAvMQ9vE-low.mp4" data-title="To vs Two vs Too">To vs Two vs Too</td></tr>
+			</table>
+			<table style="margin-top: 20px;">
+				<tr><th>[VIDEOS] Math</th></tr>
+				<tr><td class="list-group-item" data-vid="https://cdn.kastatic.org/KA-youtube-converted/7I_AILEWTL4.mp4-low/7I_AILEWTL4-low.mp4" data-title="Introduction to Adding Decimals">Introduction to Adding Decimals</td></tr>
+				<tr><td class="list-group-item" data-vid="https://cdn.kastatic.org/KA-youtube-converted/66_Sb1dP81E.mp4-low/66_Sb1dP81E-low.mp4" data-title="Adding Decimals with Ones and Tenths Parts">Adding Decimals with Ones and Tenths Parts</td></tr>
+			</table>
+        </div>
+    </div>
+
+    <div id="student-video" class="page nested-page" style="overflow: auto;">
+        <div style="line-height: 16pt;">
+            <i class="fa fa-arrow-left" aria-hidden="true"></i>
+            <span style="float: right;">VIDEOS</span>
+        </div>
+        <div style="margin: 15px 0; font-size: 12pt; float: right; width: 100%;">
+            <div id="student-video-title" style="font-size: 16pt; text-align: center; font-weight: bold;"></div><br/>
+            <video controls style="width: 100%;"></video>
         </div>
     </div>
 
@@ -148,8 +167,28 @@
 			<i class="fa fa-arrow-left" aria-hidden="true"></i>
 			<span style="float: right;">COURSES</span>
 		</div>
-		<div style="margin: 15px 0; font-size: 12pt; float: right;">
-			
+		<div style="margin: 15px 0; font-size: 12pt;">
+			<table>
+				<tr><th>Commonly Confused Words</th></tr>
+				<tr><td>Lehman Rahim</td></tr>
+				<tr><td>Zubok Kumar</td></tr>
+				<tr><td>...</td></tr>
+			</table>
+			<br/>
+			<table>
+				<tr><th>To vs Two vs Too</th></tr>
+				<tr><td>Nina Yadav</td></tr>
+				<tr><td>Zubok Kumar</td></tr>
+				<tr><td>Yayo Saaed</td></tr>
+				<tr><td>...</td></tr>
+			</table>
+			<br/>
+			<table>
+				<tr><th>Introduction to Adding Decimals</th></tr>
+				<tr><td>Lehman Rahim</td></tr>
+				<tr><td>Nina Yadav</td></tr>
+				<tr><td>...</td></tr>
+			</table>
 		</div>
 	</div>
 
