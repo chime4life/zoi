@@ -61,6 +61,7 @@ var app = {
         $('#micon-support-stats').on('click', function() { _this.previous = 'support'; _this.showSupportStats(); _this.updateSupportStats('January'); _this.hideSubpage('support'); });
         $('#support-stats select').on('change', function() { var loc = $('#support-stats select').val(); _this.updateSupportStats(loc); });
     
+        $('#emergency-text').on('keydown', function(e) { if (e.keyCode == 13) _this.sendEmergencyMessage(); });
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
 
         $('#micon-fun').on('click', function() { $('.page').hide(); _this.showFun(); _this.hideMenu(); });
