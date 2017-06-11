@@ -35,6 +35,8 @@ var app = {
     	$('#micon-volunteer').on('click', function() { $('.page').hide(); _this.showVolunteer(); _this.hideMenu(); });
     	$('#micon-support').on('click', function() { $('.page').hide(); _this.showSupport(); _this.hideMenu(); });
     	$('#micon-emergency').on('click', function() { $('.page').hide(); _this.showEmergency(); _this.hideMenu(); });
+        
+        $('.list-group-item').on('click', function() { _this.previous = 'student'; _this.showStudentVideo($(this).attr("data-vid"),$(this).attr("data-title")); _this.hideSubpage('student'); });
 
     	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.updateVolunteerStats('fhood'); _this.hideSubpage('volunteer'); });
     	$('#volunteer-stats select').on('change', function() { var loc = $('#volunteer-stats select').val(); _this.updateVolunteerStats(loc); });
@@ -90,6 +92,12 @@ var app = {
 
     showStudent: function() {
         $('#student').show();
+    },
+
+    showStudentVideo: function(url,title) {
+        $('#student-video').show();
+        $('#student-video video').attr("src",url);
+        $('#student-video-title').html(title);
     },
 
     updateVolunteerStats: function(loc) {
