@@ -106,7 +106,7 @@ var app = {
     	new Chart(c1, {
 			type: 'bar',
 			data: {
-				labels: ["5-10", "10-15"],
+				labels: ["6-12", "12-18"],
 				datasets: [{
 					label: "Female",
 					backgroundColor: "rgb(255, 99, 132)",
@@ -126,10 +126,22 @@ var app = {
 					text: 'Age Groups'
 				},
 			    scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Ages'
+                        }
+                    }],
 			        yAxes: [{
 			            ticks: {
 			                beginAtZero: true
-			            }
+			            },
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Count'
+                        }
 			        }]
 			    }
 			}
