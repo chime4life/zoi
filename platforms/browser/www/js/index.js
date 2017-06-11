@@ -67,6 +67,10 @@ var app = {
     	$('#volunteer-stats').show();
     },
 
+    showStudent: function() {
+        $('#student').show();
+    },
+
     updateVolunteerStats: function(loc) {
     	var d1 = this.data["volunteer-stats-age-bar"][loc];
     	var c1 = document.getElementById("volunteer-stats-age-bar");
