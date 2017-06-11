@@ -43,6 +43,8 @@ var app = {
     	$('#micon-volunteer-courses').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerCourses(); _this.hideSubpage('volunteer'); });
 
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
+
+        $('#micon-fun').on('click', function() { $('.page').hide(); _this.showFun(); _this.hideMenu(); });
     },
 
     hideSplash: function() {
@@ -98,6 +100,24 @@ var app = {
         $('#student-video').show();
         $('#student-video video').attr("src",url);
         $('#student-video-title').html(title);
+    },
+
+    showFun: function() {
+        var settings = {
+          "async": true,
+          "crossDomain": true,
+          "url": "http://www.randomfunfacts.com/",
+          "method": "GET",
+          "headers": {
+            "cache-control": "no-cache",
+           }
+        }
+
+        $.ajax(settings).done(function (response) {
+            var text = $(response).find('i').text();
+            $('#fun_content').html(text);
+        });
+        $('#fun').show();
     },
 
     updateVolunteerStats: function(loc) {
