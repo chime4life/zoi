@@ -205,7 +205,7 @@ var app = {
     	var text = $('#emergency-text').val();
     	$('#emergency-text').val('').focus();
     	var d = $('<div style="clear: both;margin-top: 10px;float: left;"></div>')[0];
-    	d.innerHTML = '<div style="float: left;margin-right: 10px;font-size: 16pt;width: 260px;background-color: #ecf0f1;color: black;border-radius: 10px;padding: 3px 10px;">' + text + '</div><div style="float: left;"><img src="img/lehman.jpg" style="border-radius: 30px; width: 60px; height: 60px;" /></div>';
+    	d.innerHTML = '<div style="float: left;margin-right: 10px;font-size: 16pt;width: 260px;background-color: #1abc9c;color: black;border-radius: 10px;padding: 3px 10px;">' + text + '</div><div style="float: left;"><img src="img/lehman.jpg" style="border-radius: 30px; width: 60px; height: 60px;" /></div>';
     	$('#emergency-messages').append(d);
     	setTimeout(function(){
     		var d = $('<div style="clear: both;margin-top: 10px;float: left;"></div>')[0];
