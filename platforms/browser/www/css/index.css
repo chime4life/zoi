@@ -63,8 +63,22 @@ body {
 .page {
 	background-color: #34495e;
 	padding: 20px;
+	font-size: 18pt;
+	height: 696px;
+	display: block;
+	overflow: hidden;
 }
 
-#emergency {
-	font-size: 18pt;
+.imenu-buttons {
+	margin-top: 15px;
 }
+
+.imenu-buttons div {
+    width: 374px;
+    height: 70px;
+    background-color: #3498db;
+    text-align: center;
+    line-height: 70px;
+    margin-top: 10px;
+}
+
