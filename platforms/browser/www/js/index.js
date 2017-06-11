@@ -6,6 +6,18 @@ var app = {
 			"hadallat": [[20, 13], [30, 22]],
 			"rukban": [[12, 16], [8, 14]],
 			"zaatari": [[40, 36], [30, 28]]
+		},
+		"volunteer-stats-attendance": {
+			"fhood": [[30, 26, 12, 56, 20, 36, 80], [40, 32, 12, 47, 78, 46, 80]],
+			"hadallat": [[12, 32, 44, 56, 47, 68, 64], [30, 26, 12, 56, 20, 36, 40]],
+			"rukban": [[30, 26, 12, 56, 20, 36, 80], [23, 32, 34, 25, 40, 47, 33]],
+			"zaatari": [[40, 32, 12, 47, 78, 46, 80], [18, 26, 28, 33, 27, 33, 27]]
+		},
+		"volunteer-stats-aspirations": {
+			"fhood": [30, 26, 12, 56, 20],
+			"hadallat": [12, 32, 44, 56, 47],
+			"rukban": [30, 16, 48, 23, 36],
+			"zaatari": [40, 32, 12, 47, 78]
 		}
 	},
 
@@ -76,11 +88,11 @@ var app = {
 				labels: ["5-10", "10-15"],
 				datasets: [{
 					label: "Female",
-					backgroundColor: "#FFB6C1",
+					backgroundColor: "rgb(255, 99, 132)",
 					data: d1[0]
 				}, {
 					label: "Male",
-					backgroundColor: "#89cff0",
+					backgroundColor: "rgb(54, 162, 235)",
 					data: d1[1]
 				}]
 			},
@@ -101,6 +113,79 @@ var app = {
 			    }
 			}
 		});
+
+    	var d2 = this.data["volunteer-stats-attendance"][loc];
+    	var c2 = document.getElementById("volunteer-stats-attendance");
+    	new Chart(c2, {
+            type: 'line',
+            data: {
+                labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun"],
+                datasets: [{
+                    label: "Female",
+                    backgroundColor: "rgb(255, 99, 132)",
+                    borderColor: "rgb(255, 99, 132)",
+                    data: d2[0],
+                    fill: false,
+                }, {
+                    label: "Male",
+                    fill: false,
+                    backgroundColor: "rgb(54, 162, 235)",
+                    borderColor: "rgb(54, 162, 235)",
+                    data: d2[1],
+                }]
+            },
+            options: {
+                responsive: true,
+                title:{
+                    display:true,
+                    text:'Monthly Attendance'
+                },
+                tooltips: {
+                    mode: 'index',
+                    intersect: false,
+                },
+                hover: {
+                    mode: 'nearest',
+                    intersect: true
+                },
+                scales: {
+                    xAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Month'
+                        }
+                    }],
+                    yAxes: [{
+                        display: true,
+                        scaleLabel: {
+                            display: true,
+                            labelString: 'Percentage'
+                        }
+                    }]
+                }
+            }
+        });
+
+    	var d3 = this.data["volunteer-stats-aspirations"][loc];
+    	var c3 = document.getElementById("volunteer-stats-aspirations");
+    	new Chart(c3, {
+    	    type: 'doughnut',
+    	    data: {
+    	      labels: ["Arts", "Engineering", "Law", "Mathematics", "Medicine"],
+    	      datasets: [{
+    	          label: "Population",
+    	          backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#e67e22"],
+    	          data: d3
+    	      }]
+    	    },
+    	    options: {
+    	      title: {
+    	        display: true,
+    	        text: 'Student Aspirations'
+    	      }
+    	    }
+    	});
     },
 
     sendEmergencyMessage: function() {
