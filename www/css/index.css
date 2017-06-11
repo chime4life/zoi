@@ -82,10 +82,10 @@ body {
     margin-top: 10px;
 }
 
-#volunteer-stats select {
+select {
 	border: none;
-	width: 60px;
-	height: 26px;	
+	width: 70px;
+	height: 26px;
 }
 
 table th, table td {
