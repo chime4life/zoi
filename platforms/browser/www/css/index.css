@@ -82,3 +82,8 @@ body {
     margin-top: 10px;
 }
 
+#volunteer-stats select {
+	border: none;
+	width: 60px;
+	height: 26px;	
+}

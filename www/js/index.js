@@ -1,5 +1,14 @@
 var app = {
 
+	data: {
+		"volunteer-stats-age-bar": {
+			"fhood": [[30, 26], [40, 32]],
+			"hadallat": [[20, 13], [30, 22]],
+			"rukban": [[12, 16], [8, 14]],
+			"zaatari": [[40, 36], [30, 28]]
+		}
+	},
+
     initialize: function() {
         this.bindEvents();
     },
@@ -15,7 +24,8 @@ var app = {
     	$('#micon-support').on('click', function() { $('.page').hide(); _this.showSupport(); _this.hideMenu(); });
     	$('#micon-emergency').on('click', function() { $('.page').hide(); _this.showEmergency(); _this.hideMenu(); });
 
-    	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.hideSubpage('volunteer'); });
+    	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.updateVolunteerStats('fhood'); _this.hideSubpage('volunteer'); });
+    	$('#volunteer-stats select').on('change', function() { var loc = $('#volunteer-stats select').val(); _this.updateVolunteerStats(loc); });
 
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
     },
@@ -55,19 +65,23 @@ var app = {
 
     showVolunteerStats: function() {
     	$('#volunteer-stats').show();
-    	var div = document.getElementById("volunteer-stats-age-bar");
-    	new Chart(div, {
+    },
+
+    updateVolunteerStats: function(loc) {
+    	var d1 = this.data["volunteer-stats-age-bar"][loc];
+    	var c1 = document.getElementById("volunteer-stats-age-bar");
+    	new Chart(c1, {
 			type: 'bar',
 			data: {
 				labels: ["5-10", "10-15"],
 				datasets: [{
 					label: "Female",
 					backgroundColor: "#FFB6C1",
-					data: [30, 26]
+					data: d1[0]
 				}, {
 					label: "Male",
 					backgroundColor: "#89cff0",
-					data: [40, 32]
+					data: d1[1]
 				}]
 			},
 			options: {
