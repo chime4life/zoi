@@ -23,10 +23,10 @@ var app = {
 
     data2: {
             "support-stats-age-bar": {
-            "January": [[30, 26], [40, 32]],
-            "February": [[20, 13], [30, 22]],
-            "March": [[12, 16], [8, 14]],
-            "April": [[40, 36], [30, 28]]
+            "January": [[12,15,20,22], [5,10,15,15], [4,6,8,12], [5,7,9,13]],
+            "February": [[13,15,20,22], [5,12,15,15], [2,6,8,13], [6,10,11,13]],
+            "March": [[11,10,15,16], [5,10,15,15], [4,6,8,12], [5,7,9,13]],
+            "April": [[11,15,20,20], [15,11,15,15], [4,10,16,12], [5,7,9,13]]
         },
         "support-stats-scholarship": {
             "January": [2478,5267,734,784,433],
@@ -258,22 +258,22 @@ var app = {
   data: {
     labels: [100,110,125,125],
     datasets: [{ 
-        data: [12,15,20,22],
+        data: d1[0],
         label: "fhood",
         borderColor: "#3e95cd",
         fill: false
       }, { 
-        data: [5,10,15,15],
+        data: d1[1],
         label: "hadallat",
         borderColor: "#8e5ea2",
         fill: false
       }, { 
-        data: [4,6,8,12],
+        data: d1[2],
         label: "rubkan",
         borderColor: "#3cba9f",
         fill: false
       }, { 
-        data: [5,7,9,13],
+        data: d1[3],
         label: "zaatari",
         borderColor: "#e8c3b9",
         fill: false
