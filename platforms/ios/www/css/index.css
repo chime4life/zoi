@@ -1,0 +1,89 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	-webkit-touch-callout: none;
+	-webkit-text-size-adjust: none;
+	-webkit-user-select: none;
+	background-color: #34495e;
+	color: white;
+	font-family: 'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+	text-transform: uppercase;
+	width: 100%;
+}
+
+#splash {
+	background: url(../img/zoi.jpg) no-repeat center top;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 414px;
+	height: 746px;
+	text-align: center;
+	z-index: 999;
+}
+
+#menu {
+	background-color: #34495e;
+	font-size: 14pt;
+	padding: 20px;
+	text-alight: center;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 998;
+}
+
+#menu-icons {
+	margin-top: 15px;
+}
+
+#menu-icons span {
+	width: 182px;
+	height: 182px;
+	background-color: #2ecc71;
+	display: block;
+	float: left;
+	text-align: center;
+}
+
+#menu-icons span i {
+	font-size: 60pt;
+	text-align: center;
+	width: 182px;
+	margin: 10px 0 8px;
+}
+
+.page {
+	background-color: #34495e;
+	padding: 20px;
+	font-size: 18pt;
+	height: 696px;
+	display: block;
+	overflow: hidden;
+}
+
+.imenu-buttons {
+	margin-top: 15px;
+}
+
+.imenu-buttons div {
+    width: 374px;
+    height: 70px;
+    background-color: #3498db;
+    text-align: center;
+    line-height: 70px;
+    margin-top: 10px;
+}
+
+#volunteer-stats select {
+	border: none;
+	width: 60px;
+	height: 26px;	
+}

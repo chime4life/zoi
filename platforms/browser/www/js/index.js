@@ -21,6 +21,22 @@ var app = {
 		}
 	},
 
+    data2: {
+            "support-stats-age-bar": {
+            "January": [[30, 26], [40, 32]],
+            "February": [[20, 13], [30, 22]],
+            "March": [[12, 16], [8, 14]],
+            "April": [[40, 36], [30, 28]]
+        },
+        "support-stats-scholarship": {
+            "January": [2478,5267,734,784,433],
+            "February": [2178,5267,734,784,733],
+            "March": [2178,5267,734,784,733],
+            "April": [2478,5267,734,784,433]
+        }
+
+    },
+
     initialize: function() {
         this.bindEvents();
     },
@@ -39,7 +55,10 @@ var app = {
     	$('#micon-volunteer-stats').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerStats(); _this.updateVolunteerStats('fhood'); _this.hideSubpage('volunteer'); });
     	$('#volunteer-stats select').on('change', function() { var loc = $('#volunteer-stats select').val(); _this.updateVolunteerStats(loc); });
     	$('#micon-volunteer-courses').on('click', function() { _this.previous = 'volunteer'; _this.showVolunteerCourses(); _this.hideSubpage('volunteer'); });
-
+        
+        $('#micon-support-stats').on('click', function() { _this.previous = 'support'; _this.showSupportStats(); _this.updateSupportStats('January'); _this.hideSubpage('support'); });
+        $('#support-stats select').on('change', function() { var loc = $('#support-stats select').val(); _this.updateSupportStats(loc); });
+    
     	$('#emergency-send').on('click', function() { _this.sendEmergencyMessage(); });
     },
 
@@ -90,6 +109,14 @@ var app = {
 
     showStudent: function() {
         $('#student').show();
+    },
+
+    showSupport: function() {
+        $('#support').show();
+    },
+
+    showSupportStats: function() {
+        $('#support-stats').show();
     },
 
     updateVolunteerStats: function(loc) {
@@ -199,6 +226,85 @@ var app = {
     	      }
     	    }
     	});
+    },
+
+    updateSupportStats: function(loc) {
+        var d1 = this.data2["support-stats-age-bar"][loc];
+        var c1 = document.getElementById("support-stats-age-bar");
+ new Chart(c1, {
+  type: 'line',
+  data: {
+    labels: [100,110,125,125],
+    datasets: [{ 
+        data: [12,15,20,22],
+        label: "fhood",
+        borderColor: "#3e95cd",
+        fill: false
+      }, { 
+        data: [5,10,15,15],
+        label: "hadallat",
+        borderColor: "#8e5ea2",
+        fill: false
+      }, { 
+        data: [4,6,8,12],
+        label: "rubkan",
+        borderColor: "#3cba9f",
+        fill: false
+      }, { 
+        data: [5,7,9,13],
+        label: "zaatari",
+        borderColor: "#e8c3b9",
+        fill: false
+      }
+    ]
+  },
+  options: {
+    title: {
+      display: true,
+      text: 'No. of Students per city (in USD)'
+    }
+  }
+});
+
+        var d2 = this.data2["support-stats-scholarship"][loc];
+       var c2 = document.getElementById("support-stats-scholarship");
+       new Chart(c2, {
+    type: 'pie',
+    data: {
+      labels: ["fhood", "hadallat", "rubkan", "zaatari"],
+      datasets: [{
+        label: "Population (millions)",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
+        data: d2
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'No. of Students Provided Scholarship for Universities'
+      }
+    }
+});
+
+/*        var d3 = this.data2["support-stats-aspirations"][loc];
+        var c3 = document.getElementById("support-stats-aspirations");
+        new Chart(c3, {
+            type: 'doughnut',
+            data: {
+              labels: ["Arts", "Engineering", "Law", "Mathematics", "Medicine"],
+              datasets: [{
+                  label: "Population",
+                  backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#e67e22"],
+                  data: d3
+              }]
+            },
+            options: {
+              title: {
+                display: true,
+                text: 'Student Aspirations'
+              }
+            }
+        });*/
     },
 
     sendEmergencyMessage: function() {
