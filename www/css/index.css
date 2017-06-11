@@ -87,3 +87,20 @@ body {
 	width: 60px;
 	height: 26px;	
 }
+
+#volunteer-courses table th, #volunteer-courses table td {
+	text-align: left;
+	font-size: 16pt;
+	width: 372px;
+	border: 1px solid #2ecc71;
+}
+
+#volunteer-courses table th {
+	background-color: #2ecc71;
+	height: 30px;
+	padding: 10px;
+}
+
+#volunteer-courses table td {
+	padding: 6px;
+}
